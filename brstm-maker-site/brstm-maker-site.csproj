@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NAudio" Version="2.0.0" />
+    <PackageReference Include="NAudio" Version="1.10.0" />
+    <PackageReference Include="SoundTouch.Net" Version="2.2.0" />
+    <PackageReference Include="SoundTouch.Net.NAudioSupport" Version="2.2.0" />
+    <PackageReference Include="VGAudio" Version="2.2.1" />
     <PackageReference Include="YoutubeExplode" Version="5.1.9" />
     <PackageReference Include="YoutubeExplode.Converter" Version="2.0.2" />
   </ItemGroup>

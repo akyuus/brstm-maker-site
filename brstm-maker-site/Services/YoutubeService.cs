@@ -40,12 +40,13 @@ namespace brstm_maker_site.Services
         public async Task<byte[]> DownloadAudio(string url)
         {
             byte[] data;
+            string filename = $"{DateTime.Now.ToFileTimeUtc()}.wav";
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(HttpUtility.UrlDecode(url));
             var streamInfo = streamManifest.GetAudioOnly().WithHighestBitrate();
-            await youtube.Videos.DownloadAsync(new IStreamInfo[] { streamInfo }, new ConversionRequestBuilder("test.wav").Build());
+            await youtube.Videos.DownloadAsync(new IStreamInfo[] { streamInfo }, new ConversionRequestBuilder(filename).Build());
 
-            data = File.ReadAllBytes("test.wav");
-            File.Delete("test.wav");
+            data = File.ReadAllBytes(filename);
+            File.Delete(filename);
             return data;
         }
     }
